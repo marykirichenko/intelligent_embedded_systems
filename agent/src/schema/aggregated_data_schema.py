@@ -8,3 +8,4 @@ class AggregatedDataSchema(Schema):
     gps = fields.Nested(GpsSchema)
     timestamp = fields.DateTime("iso")
     user_id = fields.Int()
+

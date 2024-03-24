@@ -14,5 +14,9 @@ MQTT_BROKER_HOST = os.environ.get("MQTT_BROKER_HOST") or "mqtt"
 MQTT_BROKER_PORT = try_parse(int, os.environ.get("MQTT_BROKER_PORT")) or 1883
 MQTT_TOPIC = os.environ.get("MQTT_TOPIC") or "agent"
 
+# Topics
+PARKING_TOPIC = "parking_data_topic"
+BASIC_TOPIC = "basic_data_topic"
+
 # Delay for sending data to mqtt in seconds
 DELAY = try_parse(float, os.environ.get("DELAY")) or 1
