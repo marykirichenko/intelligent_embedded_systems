@@ -13,7 +13,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
       - ./db/structure.sql:/docker-entrypoint-initdb.d/structure.sql
     ports:
-      - "5432:5432"
+      - "5678:5432"
     networks:
       db_network:
 
