@@ -7,6 +7,7 @@ import requests
 
 from app.entities.processed_agent_data import ProcessedAgentData
 from app.interfaces.store_gateway import StoreGateway
+import logging
 
 
 class StoreApiAdapter(StoreGateway):
@@ -22,3 +23,9 @@ class StoreApiAdapter(StoreGateway):
             bool: True if the data is successfully saved, False otherwise.
         """
         # Implement it
+        data = [json.loads(message.json()) for message in processed_agent_data_batch]
+        logging.basicConfig(filename='json_Data.log', level=logging.INFO)
+        logging.info(data)
+        response = requests.post(f"{self.api_base_url}/processed_agent_data/", json=data)
+        return response.status_code == requests.codes.ok
+
