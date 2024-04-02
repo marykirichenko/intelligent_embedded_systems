@@ -40,7 +40,7 @@ class AgentMQTTAdapter(AgentGateway):
             # we need to add a user_id to the payload
             payload_str: str = msg.payload.decode("utf-8")  # Decode the payload into a string
             payload_dict = json.loads(payload_str)
-            payload_dict['user_id'] = random.randint(1, 10000)
+            payload_dict['user_id'] = random.randint(1, 1000)
             updated_payload_str = json.dumps(payload_dict)
             agent_data = AgentData.model_validate_json(updated_payload_str, strict=True)
             processed_data = process_agent_data(agent_data)
